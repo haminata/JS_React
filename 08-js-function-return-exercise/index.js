@@ -5,6 +5,11 @@
  * and return "Hello 'your_name'!"
  */
 
+ const name = "Haminata"
+
+ function greet(name){
+  return  "Hello " + name + "!";
+ } 
 /**
  * Exercise 2
  *
@@ -13,6 +18,14 @@
  * if the age is less than 18
  */
 
+let age = 31;
+function loginValidation(age){
+    if(age >= 18){
+        return "Welcome!";
+    }else{
+        return "Sorry, not allowed.";
+    }
+}
 /**
  * Exercise 3
  *
@@ -20,12 +33,28 @@
  * and return the least one.
  */
 
+ const a = 5;
+ const b = 10; 
+
+function minNumber(a,b){
+    if(a > b){
+        return b;
+    } else{
+        return a; 
+    }
+}
+
 /**
  * Exercise 4
  *
  * Create a function `randomNumber` which returns an integer between
  * 1 and 10, fraction should be rounded to lower integer
  */
+ var theRandomNumber;
+
+ function randomNumber(theRandomNumber){
+    return  theRandomNumber = Math.floor(Math.random() * 10) + 1;
+}
 
 /**
  * Exercise 5
@@ -33,3 +62,8 @@
  * Create a function `getOppositeNumber` that takes a number as a param and
  * returns an opposite number
  */
+
+ const num = 5
+ function getOppositeNumber(){
+    return -num ;
+}

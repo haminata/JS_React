@@ -7,6 +7,13 @@
  * NOTE: additionally you can have console.log() to log the result
  */
 
+const num1 = 4;
+const num2 = 90;
+
+function sum(num1, num2){
+    return num1 + num2;
+}
+
 /**
  * Exercise #2
  *
@@ -17,6 +24,11 @@
  * NOTE: additionally you can have console.log() to log the result
  */
 
+
+
+ function subtract(num1, num2){
+    return num1 - num2;
+}
 /**
  * Exercise #3
  *
@@ -25,6 +37,9 @@
  *
  * NOTE: additionally you can have console.log() to log the result
  */
+ function multiply(num1, num2){
+    return num1 * num2;
+}
 
 /**
  * Exercise #4
@@ -35,6 +50,9 @@
  *
  * NOTE: additionally you can have console.log() to log the result
  */
+function divide(num1, num2){
+        return num1 / num2
+}
 
 /**
  * Exercise #5
@@ -45,6 +63,10 @@
  *
  * NOTE: additionally you can have console.log() to log the result
  */
+function getRemainder(num1, num2){
+    return num1 % num2  ;
+}
+
 
 /**
  * Exercise #6
@@ -55,6 +77,9 @@
  * NOTE: additionally you can have console.log() to log the result
  */
 
+function increment(num1){
+    return num1 + 1
+}
 /**
  * Exercise #7
  *
@@ -63,3 +88,7 @@
  *
  * NOTE: additionally you can have console.log() to log the result
  */
+
+ function decrement(num1){
+    return num1 -1;
+}

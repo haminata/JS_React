@@ -7,6 +7,10 @@
  *
  */
 
+const userName = "Hawa";
+console.log(userName);
+
+
 /**
  * Exercise 2
  *
@@ -15,3 +19,5 @@
  *
  * {age} can be reassigned
  */
+
+ let age = 1;
