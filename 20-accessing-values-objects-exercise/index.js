@@ -29,6 +29,9 @@ const user = {
  * PS: use console.log() to see the result
  */
 
+const userFirstName = user.firstName;
+console.log(userFirstName);
+
 /**
  * Exercise 2
  *
@@ -39,6 +42,10 @@ const user = {
  * PS: use console.log() to see the result
  */
 
+const favoriteMovie = user.favoriteMovies[0];
+
+console.log(favoriteMovie);
+
 /**
  * Exercise 3
  * create "userFullName" that equals to
@@ -47,6 +54,9 @@ const user = {
  *
  * PS: use console.log() to see the result
  */
+
+const userFullName = `${user.firstName} ${user.lastName}`;
+console.log(userFullName);
 
 /**
  * Exercise 4
@@ -57,6 +67,9 @@ const user = {
  * PS: use console.log() to see the result
  */
 
+const getFullName = () =>  `${user.firstName} ${user.lastName}`;
+
+console.log(getFullName());
 /**
  * Exercise 5
  *
@@ -65,6 +78,11 @@ const user = {
  *
  * PS: use console.log() to see the result
  */
+
+const mom = user.parents.mother;
+const mothersFirstName = mom.firstName;
+
+console.log(mothersFirstName);
 
 /**
  * Exercise 6
@@ -76,6 +94,23 @@ const user = {
  * PS: use console.log() to see the result
  */
 
+const getParentFullName = (parentType) => {
+  if (parentType === 'mother'){
+
+    const mom = user.parents.mother;
+    return `${mom.firstName} ${mom.lastName}`;
+    
+  } else if(parentType === 'father'){
+  
+    const dad = user.parents.father;
+    return `${dad.firstName} ${dad.lastName}`;
+  
+  }
+ 
+}
+
+getParentFullName('father');
+
 /**
  * Exercise 7
  *
@@ -84,3 +119,8 @@ const user = {
  *
  * * PS: use console.log() to see the result
  */
+
+const getUserData = (propertyName) => {
+  
+  return user[propertyName];
+};

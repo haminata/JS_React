@@ -38,6 +38,34 @@ const dataTypes = [
  * }
  */
 
+const sortedData = (dataParam) =>{
+  let dataSorted = {};
+  
+  for(const item of dataParam){
+  
+    if(Number.isInteger(item)){
+      dataSorted.integers =[item];
+      
+    }else if(item === ""){
+      dataSorted.strings = [item];
+      
+    }else if(item  % 1 !== 0){
+      dataSorted.floats =[item];
+      
+    }else if(Array.isArray(item)){
+      dataSorted.arrays = [item];
+     
+    }else if(Object.isObject(item)){
+      dataSorted.objects = [item];
+    }
+  }
+  return dataSorted;
+
+}
+console.log(sortedData(dataTypes));
+
+
+
 /**
  * Exercise 2
  *
@@ -49,7 +77,7 @@ const dataTypes = [
  * Ex: pass [3,2,6]
  * result: [6, 12, 6]
  */
-
+const multipliedByNextNumber = () =>{}
 /**
  * Exercise 3
  *
@@ -62,7 +90,7 @@ const dataTypes = [
  * ex: multipliedEvenNumbers([4,3,6,8,5,7])
  * result: [24, 3, 48, 16, 5, 7]
  */
-
+ const multipliedEvenNumbers = () =>{}
 /**
  * Exercise 4
  *
@@ -75,7 +103,7 @@ const dataTypes = [
  * ex: multipliedEvenNumbers([4,3,6,8,5,7])
  * result: [4, 15, 6, 8, 35, 7]
  */
-
+ const multipliedOddNumbers = () =>{}
 /**
  * Exercise 5
  *
@@ -86,3 +114,5 @@ const dataTypes = [
  * if you pass "odd" do the same what you have for exercise 4
  * else return original array.
  */
+
+ const multipliedEvenOddNumbers = () =>{}

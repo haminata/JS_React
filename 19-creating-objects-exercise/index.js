@@ -6,7 +6,14 @@
  *
  * PS: use console.log() to see the result
  */
+ 
+ const user ={
+    firstName: 'Nura',
+    lastName: 'Janner',
+    age:30
+ }
 
+console.log(user);
 /**
  * Exercise 2
  *
@@ -15,6 +22,17 @@
  *
  * PS: use console.log() to see the result
  */
+
+const allTypes = {
+    string : '" "',
+    number: 9,
+    array: ['[]'],
+    object:{},
+    function: function(){} ,
+    boolean:false
+}
+
+console.log(allTypes);
 
 /**
  * Exercise 3
@@ -25,3 +43,20 @@
  *
  * PS: use console.log() to see the result
  */
+ 
+
+
+const createMovieObject =(name, rating, ticketPrice) =>{
+    const movieInfo = {
+        name: name,
+        rating: rating,
+        ticketPrice: ticketPrice
+    };
+    
+    
+    return movieInfo
+    
+
+}
+const movie = createMovieObject('Titanic', 5, '£10')
+console.log(movie)

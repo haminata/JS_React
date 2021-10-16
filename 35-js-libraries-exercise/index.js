@@ -1,3 +1,5 @@
+
+// import chalk from 'chalk';
 /**
  * Exercise 1
  *
@@ -20,6 +22,13 @@
  * to see the result
  */
 
+const renderBlueText = () => {
+    
+
+    console.log(chalk.blue('Hello world!'));
+}
+
+renderBlueText();
 /**
  * Exercise 3
  *
@@ -29,6 +38,8 @@
  * to see the result
  */
 
+const inversedColourText = () => {}
+
 /**
  * Exercise 4
  *
@@ -36,3 +47,5 @@
  * and style each by adding red background colour and setting
  * font colour to white.
  */
+ 
+ const styledText = () => {}

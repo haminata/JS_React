@@ -1,0 +1,45 @@
+*{
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+    
+    
+}.container {
+  max-width: 1024px;
+  width: 90%;
+  margin: 0 auto;
+  
+  
+}main {
+    min-height: 100vh;
+    background-color: #000;
+    background-image: "./images/wave-18.png";
+    color: #fff;
+
+}main .wave{
+  position: relative;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+  
+.main_container{
+  position: relative;
+  z-index: 1;
+}
+
+main nav .nav_list {
+  list-style: none;
+  padding: 1em 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  
+}.nav_list_item {
+  padding: 1em 0;
+  margin-left: 1em;
+  background-color:#523003;
+}
+
+
+
+
