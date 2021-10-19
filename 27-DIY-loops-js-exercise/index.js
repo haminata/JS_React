@@ -44,19 +44,43 @@ const sortedData = (dataParam) =>{
   for(const item of dataParam){
   
     if(Number.isInteger(item)){
-      dataSorted.integers =[item];
+      if(dataSorted.integers){
+        dataSorted.integers.push(item);
+      }else{
+        dataSorted.integers =[item];
+      }
+
       
-    }else if(item === ""){
-      dataSorted.strings = [item];
+    }else if(typeof item == 'string'){
+      if(dataSorted.strings) {
+        dataSorted.strings.push(item);
+      }else{
+        dataSorted.strings = [item];
+      }
+
       
-    }else if(item  % 1 !== 0){
-      dataSorted.floats =[item];
+    }else if(typeof  item == 'number'){
+      if(dataSorted.floats){
+        dataSorted.floats.push(item);
+      }else {
+        dataSorted.floats =[item];
+      }
+
       
     }else if(Array.isArray(item)){
-      dataSorted.arrays = [item];
+      if(dataSorted.arrays){
+        dataSorted.arrays.push(item);
+      }else{
+        dataSorted.arrays = [item];
+      }
+
      
-    }else if(Object.isObject(item)){
-      dataSorted.objects = [item];
+    }else if(typeof item == 'object'){
+      if(dataSorted.objects){
+        dataSorted.objects.push(item);
+      }else{
+        dataSorted.objects = [item];
+      }
     }
   }
   return dataSorted;
@@ -77,7 +101,18 @@ console.log(sortedData(dataTypes));
  * Ex: pass [3,2,6]
  * result: [6, 12, 6]
  */
-const multipliedByNextNumber = () =>{}
+const passingArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18, "panda"];
+const multipliedByNextNumber = (arraParam) =>{
+
+  let newArray = [];
+  let tempArray = [];
+  for(let i = 0; i <arraParam.length; i++){
+
+  }
+
+}
+
+
 /**
  * Exercise 3
  *
