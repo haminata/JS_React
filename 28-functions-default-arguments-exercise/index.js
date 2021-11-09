@@ -7,16 +7,13 @@
  * should be 'incognito'
  */
 
- const sayHi = (nameParam) => {
-    
-    if(nameParam === ''){
-        console.log(`Hi, ${nameParam}!`)
-    }else{
-        console.log('Hi, Incongnito!');
-    }
+ const sayHi = (nameParam = "incognito") => {
+
+    return `Hi, ${nameParam}!`;
+
  }
-const names = "Alex"
-sayHi(names);
+
+sayHi(undefined);
 
 /**
  * Exercise 2
@@ -28,7 +25,9 @@ sayHi(names);
  * a default value/values
  */
  
- const multiply = () => {}
+ const multiply = (num1 = 1, num2 = 1) => {
+     return num1 * num2;
+}
 
 /**
  * Exercise 3
@@ -38,12 +37,11 @@ sayHi(names);
  * array that contains only one element - string with value "Nothing to log"
  */
 
- const logElements = (arrayParam) => {
-//     for(const element of arrayParam){
-    
-//         if(arrayParam.lenght)
-    
-//     }
+ const logElements = (arrayParam = ["Nothing to log"]) => {
+
+    for(const element of arrayParam){
+        console.log(element);
+    }
  
  }
  
@@ -54,5 +52,7 @@ sayHi(names);
  * Default value of the param should be object with property name,
  * and value "John Smith"
  */
- 
- const getUserName = () => {}
+
+ const getUserName = (obj ={name:'John Smith'}) => {
+     return obj.name;
+}

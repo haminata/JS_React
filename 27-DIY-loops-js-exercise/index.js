@@ -40,9 +40,9 @@ const dataTypes = [
 
 const sortedData = (dataParam) =>{
   let dataSorted = {};
-  
+
   for(const item of dataParam){
-  
+
     if(Number.isInteger(item)){
       if(dataSorted.integers){
         dataSorted.integers.push(item);
@@ -50,7 +50,7 @@ const sortedData = (dataParam) =>{
         dataSorted.integers =[item];
       }
 
-      
+
     }else if(typeof item == 'string'){
       if(dataSorted.strings) {
         dataSorted.strings.push(item);
@@ -58,7 +58,7 @@ const sortedData = (dataParam) =>{
         dataSorted.strings = [item];
       }
 
-      
+
     }else if(typeof  item == 'number'){
       if(dataSorted.floats){
         dataSorted.floats.push(item);
@@ -66,7 +66,7 @@ const sortedData = (dataParam) =>{
         dataSorted.floats =[item];
       }
 
-      
+
     }else if(Array.isArray(item)){
       if(dataSorted.arrays){
         dataSorted.arrays.push(item);
@@ -74,7 +74,7 @@ const sortedData = (dataParam) =>{
         dataSorted.arrays = [item];
       }
 
-     
+
     }else if(typeof item == 'object'){
       if(dataSorted.objects){
         dataSorted.objects.push(item);
@@ -101,17 +101,30 @@ console.log(sortedData(dataTypes));
  * Ex: pass [3,2,6]
  * result: [6, 12, 6]
  */
-const passingArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18, "panda"];
+const passingArray = [1,2,3,4,5,6,7,8,9,10];
 const multipliedByNextNumber = (arraParam) =>{
 
   let newArray = [];
-  let tempArray = [];
+
   for(let i = 0; i <arraParam.length; i++){
+    let firstVal = arraParam[i];
+    let indexOfSecVal = i + 1;
+    let seconVal = arraParam[indexOfSecVal];
+
+    let isLastElem = i === (arraParam.length - 1);
+
+    if(isLastElem){
+      newArray.push(firstVal * 1);
+    }else {
+      let result = firstVal * seconVal;
+      newArray.push(result);
+    }
 
   }
+  return newArray;
 
 }
-
+console.log(multipliedByNextNumber(passingArray))
 
 /**
  * Exercise 3
@@ -125,7 +138,44 @@ const multipliedByNextNumber = (arraParam) =>{
  * ex: multipliedEvenNumbers([4,3,6,8,5,7])
  * result: [24, 3, 48, 16, 5, 7]
  */
- const multipliedEvenNumbers = () =>{}
+
+const pasArr = [4,3,6,8,5,7];
+const multipliedEvenNumbers = (arrayParam) =>{
+  let resultArray = [];
+
+
+  for(let i = 0; i <arrayParam.length; i++){
+    let iVal = arrayParam[i];
+    let secondVal = null;
+
+    if(iVal % 2 == 0){
+      let firstVal = iVal;
+      for (let j = i+1; j < arrayParam.length; j++) {
+        let jVal = arrayParam[j];
+
+        if(jVal % 2 == 0){
+          secondVal = jVal;
+
+          break;
+        }
+      }
+      if(secondVal == null){
+        secondVal = 2;
+      }
+      resultArray.push(firstVal* secondVal);
+
+    }else{
+      resultArray.push(iVal);
+    }
+
+
+  }
+  return resultArray;
+
+}
+
+console.log("Result for multiply even number :" ,multipliedEvenNumbers(pasArr));
+
 /**
  * Exercise 4
  *
@@ -138,7 +188,38 @@ const multipliedByNextNumber = (arraParam) =>{
  * ex: multipliedEvenNumbers([4,3,6,8,5,7])
  * result: [4, 15, 6, 8, 35, 7]
  */
- const multipliedOddNumbers = () =>{}
+const multipliedOddNumbers = (inputArray) =>{
+  let result = [];
+  for(let i =0; i < inputArray.length; i++){
+    let elementA;
+    let elementB = null;
+
+    if(inputArray[i] % 2 ==1){
+      elementA = inputArray[i];
+      for(let j = i+1; j < inputArray.length; j++){
+        if(inputArray[j]% 2 ==1) {
+          elementB = inputArray[j];
+          break;
+        }
+
+      }
+      if(elementB ==null){
+        elementB = 1;
+      }
+      result.push(elementA* elementB);
+
+    }else{
+      result.push(inputArray[i])
+    }
+
+  }
+
+  return result
+
+}
+
+console.log("Result for multiply odd number :" ,multipliedOddNumbers(pasArr));
+
 /**
  * Exercise 5
  *
@@ -150,4 +231,14 @@ const multipliedByNextNumber = (arraParam) =>{
  * else return original array.
  */
 
- const multipliedEvenOddNumbers = () =>{}
+const multipliedEvenOddNumbers = (arrayInpt, type) =>{
+
+  if(type === "odd"){
+   return multipliedOddNumbers(arrayInpt);
+  }else if (type === "even"){
+   return multipliedEvenNumbers(arrayInpt);
+  }else{
+   return arrayInpt;
+  }
+}
+console.log("Result based on input :" ,multipliedEvenOddNumbers(pasArr,"even"));
