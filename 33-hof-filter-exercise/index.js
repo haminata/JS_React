@@ -4,11 +4,11 @@
  * create a function {noStrings} that takes an array
  * as a parameter and return an array but without strings
  */
-function checkAdult(num) {
+function removeString(num) {
     return typeof num !== "string";
 }
 const noStrings = (arParam) => {
-  return arParam.filter(checkAdult);
+  return arParam.filter(removeString);
 }
 
 /**

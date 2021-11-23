@@ -2,7 +2,7 @@
 /**
  * !!! IMPORTANT !!!
  * 
- * USE "for" loop to recreate all JS pre-built functions
+ *
  */
 
 /**
@@ -15,6 +15,13 @@
  * passed each element and the index.
  *
  */
+
+const forEach = (array, callback) => {
+    for (let i = 0; i < array.length ; i++) {
+        callback(array[i], i);
+
+    }
+}
 
 /**
  * Exercise #2
@@ -29,6 +36,13 @@
  * time the callback was invoked.
  *
  */
+const map = (array, callback) => {
+    let result =[];
+    for (let i = 0; i < array.length; i++) {
+       result.push(callback(array[i], i)) ;
+    }
+    return result;
+}
 
 /**
  * Exercise #3
@@ -44,6 +58,18 @@
  *
  */
 
+const filter = (array, callback) => {
+    let result = [];
+    for (let i = 0; i < array.length ; i++) {
+       let truthy = callback(array[i], i);
+        if(truthy){
+            result.push(array[i]);
+        }
+    }
+    return result;
+
+}
+
 /**
  * Exercise #4
  *
@@ -58,6 +84,15 @@
  *
  */
 
+const find = (array, callback) => {
+    for (let i = 0; i <array.length ; i++) {
+        let truthy =  callback(array[i], i);
+        if(truthy){
+            return array[i];
+        }
+    }
+}
+
 /**
  * Exercise #5
  *
@@ -71,6 +106,15 @@
  * callback returns a truthy value.
  *
  */
+
+const findIndex = (array, callback) => {
+    for (let i = 0; i < array.length; i++) {
+        let truthy =  callback(array[i], i);
+        if(truthy){
+            return i;
+        }
+    }
+}
 
 /**
  * Exercise #6
@@ -87,6 +131,16 @@
  *
  */
 
+const every = (array, callback) => {
+    for (let i = 0; i < array.length; i++) {
+         truthy = callback(array[i], i);
+        if(!truthy){
+            return false;
+        }
+    }
+    return true
+}
+
 /**
  * Exercise #7
  *
@@ -101,6 +155,16 @@
  * a truthy value.
  *
  */
+
+const some = (array, callback) => {
+    for (let i = 0; i < array.length; i++) {
+        truthy = callback(array[i], i);
+        if(truthy){
+            return true;
+        }
+    }
+    return false;
+}
 
 /**
  * Exercise #8
@@ -123,3 +187,12 @@
  * value.
  *
  */
+
+const reduce = (array, callback, initialValue=0) => {
+    let result = initialValue;
+    for (let i = 0; i < array.length; i++) {
+        result = callback(result, array[i], i);
+    }
+
+    return result;
+}
