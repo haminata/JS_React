@@ -1,17 +1,21 @@
 // install and  import "readline-sync" npm package before you do exercises
 
+const readlineSync = require('readline-sync');
 const user = {};
 /**
  * Exercise 1
  *
  * ask user for a first name and save response to {user.firstName}
  */
+user.firstName = readlineSync.question('May I have your first name, please?: ');
 
+console.log(`Hi ${user.firstName}!`);
 /**
  * Exercise 2
  *
  * ask user for a last name and save response to {user.lastName}
  */
+user.lastName = readlineSync.question('May I have your last name, please?: ');
 
 console.log(`Hello ${user.firstName} ${user.lastName}!`);
 
@@ -20,12 +24,15 @@ console.log(`Hello ${user.firstName} ${user.lastName}!`);
  *
  * ask user for a age and save response to {user.age}
  */
+ user.age = readlineSync.question('May I have your age, please?: ');
 
 /*
  * Exercise 4
  *
  * ask user for a email and save response to {user.email}
  */
+
+user.email = readlineSync.question('May I have your email, please?: ');
 
 /**
  * OPTIONAL:
