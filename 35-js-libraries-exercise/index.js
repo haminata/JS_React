@@ -1,5 +1,4 @@
-
-// import chalk from 'chalk';
+const chalk = require('chalk');
 /**
  * Exercise 1
  *
@@ -38,8 +37,11 @@ renderBlueText();
  * to see the result
  */
 
-const inversedColourText = () => {}
+const inversedColourText = (pasString) => {
+    console.log(chalk.inverse(pasString));
+}
 
+inversedColourText("Hello World");
 /**
  * Exercise 4
  *
@@ -48,4 +50,7 @@ const inversedColourText = () => {}
  * font colour to white.
  */
  
- const styledText = () => {}
+ const styledText = (pasString) => {
+    console.log(chalk.bgRed.white(pasString));
+}
+styledText("Hello Haminata");
