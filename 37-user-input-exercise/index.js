@@ -1,11 +1,11 @@
 // install and  import "readline-sync" npm package before you do exercises
-
+const readlineSync = require('readline-sync');
 /**
  * Exercise 1
  *
  * ask user for a name and assign a response to variable {name}
  */
-
+ let name = readlineSync.question('May I have your first name, please?: ');
 //===== DO NOT TOUCH THIS BLOCK =====
 console.log(`Hi ${name}!`);
 console.log("=====================");
@@ -23,6 +23,14 @@ console.log("=====================");
  * NOTE: if the user will respond with wrong value, ask again, until
  * you get correct symbol
  */
+let selectedSymbol = readlineSync.question('Provide a math symbol, here a few options: +, -, * or /: ');
+
+const symbols =[ '+', '-', '*' ,'/'];
+
+while(!symbols.includes(selectedSymbol)){
+
+  selectedSymbol = readlineSync.question('Please provide a math symbol:');
+}
 
 /**
  * Exercise 3
@@ -33,6 +41,11 @@ console.log("=====================");
  * you get a number
  */
 
+let number1 = readlineSync.question('Please provide first number: ')
+
+while(!Number.isInteger(parseInt(number1))){
+    number1 = readlineSync.question('Must be a number: ');
+}
 /**
  * Exercise 4
  *
@@ -42,6 +55,11 @@ console.log("=====================");
  * you get a number
  */
 
+let number2 = readlineSync.question('Please provide second number: ')
+
+while(!Number.isInteger(parseInt(number2))) {
+    number2 = readlineSync.question('Must be a number: ');
+}
 /**
  * Exercise 5
  *
@@ -50,6 +68,16 @@ console.log("=====================");
  *
  * show the result to the user
  */
+
+if(selectedSymbol.includes('-')){
+    result= number1 - number2;
+}else if(selectedSymbol.includes('+')){
+    result= number1 + number2;
+}else  if(selectedSymbol.includes('*')){
+    result= number1 * number2;
+}else if(selectedSymbol.includes('/')){
+    result= number1 / number2;
+}
 
 console.log("=====================");
 console.log(`Here you go, the result is ${result}`);
