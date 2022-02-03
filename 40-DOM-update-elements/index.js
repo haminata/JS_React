@@ -9,17 +9,39 @@
  * and displays it in the h1
  */
 
+
+const setTitle = (h1String) => {
+    const h1=  document.getElementsByTagName('h1')[0];
+    h1.innerText = h1String
+    return h1;
+}
+
+
+
 /**
  * Exercise 2
  * create a function {appendToTitle} which takes a string as an argument
  * and appends it to existing h1 text
  */
 
+const appendToTitle = (h1StringArg) => {
+    const h1 = document.getElementsByTagName('h1')[0];
+    h1.innerText =  h1.innerText + h1StringArg;
+
+}
+
+
 /**
  * Exercise 3
  * create a function {prependToTitle} which takes a string as an argument
  * and prepends it to existing h1 element text
  */
+
+const prependToTitle = (h1StringArg) => {
+    const h1 = document.getElementsByTagName('h1')[0];
+    h1.innerText = h1StringArg + h1.innerText;
+
+}
 
 /**
  * Exercise 4
