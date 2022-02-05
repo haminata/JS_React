@@ -157,7 +157,11 @@ const disableBtns = (className) => {
  */
 
 const addClassToLi = () => {
+    const listOfLi = document.querySelectorAll('ul.list li');
 
+    for (let i = 0; i < listOfLi.length; i++) {
+        listOfLi[i].classList.add(`list_item_${i}`);
+    }
 }
 
 /**
@@ -168,7 +172,11 @@ const addClassToLi = () => {
  */
 
 const removeListItemClass = () => {
+    const listOfLi = document.querySelectorAll('li');
 
+    for (let i = 0; i < listOfLi.length; i++) {
+        listOfLi[i].classList.remove('list_item');
+    }
 }
 
 /**
@@ -179,8 +187,9 @@ const removeListItemClass = () => {
  * the id to the element
  */
 
-const addId = () => {
-
+const addId = (idArg, cssSelector) => {
+    const elem = document.querySelector(cssSelector);
+    elem.id = idArg;
 }
 
 
@@ -196,6 +205,10 @@ const addId = () => {
  * set the CSS property to the value
  */
 
-const setStyles = () => {
+const setStyles = (cssName, prpVal, cssSlect) => {
 
+    const elems = document.querySelectorAll(cssSlect);
+    for (const elem of elems) {
+        elem.style[cssName] = prpVal;
+    }
 }
