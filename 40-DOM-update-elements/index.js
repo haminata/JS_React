@@ -11,7 +11,7 @@
 
 
 const setTitle = (h1String) => {
-    const h1=  document.getElementsByTagName('h1')[0];
+    const h1 =  document.getElementsByTagName('h1')[0];
     h1.innerText = h1String
     return h1;
 }
@@ -41,6 +41,7 @@ const prependToTitle = (h1StringArg) => {
     const h1 = document.getElementsByTagName('h1')[0];
     h1.innerText = h1StringArg + h1.innerText;
 
+
 }
 
 /**
@@ -51,11 +52,37 @@ const prependToTitle = (h1StringArg) => {
  * passed into the function
  */
 
+const setInnerHTMLForDiv = (tagName, text) => {
+    //grabs the second div element in the html
+    const div = document.querySelector('div');
+
+    //creates new tag that's been passed into the function
+    const newTag = document.createElement(tagName);
+
+    //that tag it's then applied to the text passed into the function
+    newTag.textContent = text;
+
+    //innerHTML only displays the text in between/ outterHTML displays the entire HTML
+    div.innerHTML = newTag.outerHTML;
+
+    return newTag;
+
+}
+
 /**
  * Exercise 5
  * create a function {pushPtoDivWithText} which takes a string as an argument
  * and uses innerHTML to add a p tag containing the text into the div
  */
+
+let pushPtoDivWithText = (stringArg) => {
+    const div = document.getElementsByTagName('div')[0];
+
+    const pTag = document.createElement('p');
+    pTag.textContent = stringArg;
+     div.innerHTML =  div.innerHTML + pTag.outerHTML;
+
+}
 
 /**
  * Exercise 6
@@ -64,6 +91,13 @@ const prependToTitle = (h1StringArg) => {
  * as arguments and set it as a src and alt attributes values
  * for existing img
  */
+
+const setSrcToImage = (stringURL, imgDesc) => {
+    const img = document.getElementsByTagName('img')[0];
+
+    img.src = stringURL;
+    img.alt = imgDesc;
+}
 
 /**
  * Exercise 7
@@ -76,6 +110,16 @@ const prependToTitle = (h1StringArg) => {
  * Also add an attribute that opens your page in a new tab
  */
 
+const setCodersInHoodsLink = (stringURL, text) => {
+    const aTag = document.getElementsByTagName('a')[0];
+    aTag.href = stringURL;
+    aTag.innerText = text;
+
+    //the target attribute controls where the link opens - in this case in a new blank tab
+    aTag.target = '_blank';
+
+}
+
 /**
  * Exercise 8
  *
@@ -83,12 +127,23 @@ const prependToTitle = (h1StringArg) => {
  * with class "reset"
  */
 
+const disableResetBtn = () => document.getElementsByClassName('reset')[0].disabled = true;
+
+
 /**
  * Exercise 9
  *
  * create a function {disableBtns} which takes class name as an argument
  * and disable all buttons with this class name
  */
+
+const disableBtns = (className) => {
+   const btns =  document.getElementsByClassName(className);
+
+    for (const btn of btns) {
+        btn.disabled = true;
+    }
+}
 
 /**
  * Exercise 10
@@ -101,12 +156,20 @@ const prependToTitle = (h1StringArg) => {
  * you will see a difference
  */
 
+const addClassToLi = () => {
+
+}
+
 /**
  * Exercise 11
  *
  *  create a function {removeListItemClass} which removes the class
  * "list_item" from all li elements with this class
  */
+
+const removeListItemClass = () => {
+
+}
 
 /**
  * Exercise 12
@@ -115,6 +178,11 @@ const prependToTitle = (h1StringArg) => {
  * a CSS selector. Use to selector to find an element, then add
  * the id to the element
  */
+
+const addId = () => {
+
+}
+
 
 /**
  * Exercise 13
@@ -127,3 +195,7 @@ const prependToTitle = (h1StringArg) => {
  * use the selector to find all the elements which match, then
  * set the CSS property to the value
  */
+
+const setStyles = () => {
+
+}
