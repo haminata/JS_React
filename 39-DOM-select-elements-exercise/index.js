@@ -8,14 +8,7 @@
 const paragraphs = document.getElementsByTagName('p');
 
 
-// const pTags = document.getElementsByTagName('p');
-//
-// const getAllPElements = () => {
-//     pTags.forEach((pTag) => {
-//         paragraphs.push(pTag);
-//     })
-//     console.log(paragraphs);
-// }
+
 
 /**
  * Exercise 2

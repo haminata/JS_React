@@ -10,7 +10,9 @@
  * NOTE: we will use this function for other exercises.
  */
 
-const createDOMElement = () => {
+const createDOMElement = (tagName) => {
+
+    return document.createElement(tagName);
 
 }
 
@@ -23,8 +25,10 @@ const createDOMElement = () => {
  * the body of the document
  */
 
-const addPTag = () => {
-
+const addPTag = (text) => {
+    const pTag = createDOMElement('p');
+    pTag.innerHTML = text
+    document.body.appendChild(pTag);
 }
 
 /**
@@ -36,9 +40,16 @@ const addPTag = () => {
  * the element to the body
  */
 
-const addElementWithClass = () => {
+const addElementWithClass = (tagName, text, className) => {
+
+    const newTag = createDOMElement(tagName);
+    newTag.innerText = text;
+    newTag.classList.add(className);
+
+    document.body.appendChild(newTag);
 
 }
+addElementWithClass('h1', 'HAMINATA CAMARA','test');
 
 /**
  * Exercise 4
@@ -48,9 +59,18 @@ const addElementWithClass = () => {
  * text, has the array of classes and append it to the body
  */
 
-const addElementWithMultipleClasses = () => {
+const classArgs = ["list_item", "list_item", "list_item"]
+const addElementWithMultipleClasses = (tagName, text, arrClasses) => {
 
+    const newTag = createDOMElement(tagName);
+    newTag.innerHTML = text;
+
+    for (const className of arrClasses) {
+        newTag.classList.add(className);
+    }
+    document.body.appendChild(newTag);
 }
+addElementWithMultipleClasses('h4',"EXPERIENCE", classArgs);
 
 /**
  * Exercise 5
@@ -64,7 +84,8 @@ const addElementWithMultipleClasses = () => {
  * Add the list element to the body
  */
 
-const buildAList = () => {
+const buildAList = (listType, listClass, numOfLi) => {
+
 
 }
 

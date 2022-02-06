@@ -12,6 +12,6 @@
   "license": "ISC",
   "devDependencies": {
     "concat": "^1.0.3",
-    "jest": "^25.1.0"
+    "jest": "^27.5.0"
   }
 }
