@@ -10,6 +10,11 @@
  * NOTE: we will use this function for other exercises.
  */
 
+const createDOMElement = () => {
+
+}
+
+
 /**
  * Exercise 2
  *
@@ -17,6 +22,10 @@
  * create a "p" tag which displays the text and appends it to
  * the body of the document
  */
+
+const addPTag = () => {
+
+}
 
 /**
  * Exercise 3
@@ -27,6 +36,10 @@
  * the element to the body
  */
 
+const addElementWithClass = () => {
+
+}
+
 /**
  * Exercise 4
  *
@@ -34,6 +47,10 @@
  * text and an array of classes. Create an element which displays the
  * text, has the array of classes and append it to the body
  */
+
+const addElementWithMultipleClasses = () => {
+
+}
 
 /**
  * Exercise 5
@@ -46,6 +63,10 @@
  * Each li should have the text "Item $" (where $ is it's position)
  * Add the list element to the body
  */
+
+const buildAList = () => {
+
+}
 
 /**
  * Exercise 6
@@ -61,6 +82,10 @@
  *
  */
 
+const prependLiToList = () => {
+
+}
+
 /**
  * Exercise 7
  * !!! to test this function in your browser, first run {buildAList} !!!
@@ -74,6 +99,10 @@
  *
  */
 
+const pushToSelectedPosition = () => {
+
+}
+
 /**
  * Exercise 8
  *
@@ -84,3 +113,7 @@
  * element which match the element selector
  *
  */
+
+const deleteChildrenElements = () => {
+
+}
