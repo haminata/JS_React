@@ -37,6 +37,15 @@ const createAList = () => {
  * 4. set font size to 2em
  */
 
+const styleElement = () => {
+  const thirdLi = document.querySelector('.myList li:nth-child(3)');
+
+  thirdLi.style.backgroundColor = 'green';
+  thirdLi.style.color = 'white';
+  thirdLi.style.fontSize = '2em';
+}
+
+
 /**
  * Exercise 3
  *
@@ -45,6 +54,14 @@ const createAList = () => {
  * 1. select last element from the ".myList"
  * 2. wait 2 seconds and remove the element from the list
  */
+
+const removeLastChild = () => {
+  const thirdLi = document.querySelector('.myList li:nth-last-child(1)');
+  setTimeout(() => {
+    console.log("setTimeout");
+    thirdLi.remove();
+  }, 2000);
+}
 
 /**
  * Exercise 4
@@ -62,3 +79,33 @@ const createAList = () => {
  * NOTE: check css file to see how we toggle styles
  * based on class "visible"
  */
+
+const createAMessage = (message) => {
+  const pElem = document.createElement('p');
+  pElem.classList.add('message');
+  pElem.textContent =  pElem.innerText = message;
+
+  document.body.appendChild(pElem);
+
+  setTimeout(() => {
+    console.log("setTimeout visible");
+    pElem.classList.add('visible');
+
+    // hide
+    setTimeout(() => {
+      console.log("setTimeout hide");
+      pElem.classList.add('hide');
+
+      // remove
+      setTimeout(() => {
+        console.log("setTimeout DOM");
+        pElem.remove();
+      }, 2000);
+
+      }, 3000);
+
+  }, 3000);
+
+
+
+}
