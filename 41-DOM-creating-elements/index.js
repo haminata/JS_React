@@ -27,7 +27,7 @@ const createDOMElement = (tagName) => {
 
 const addPTag = (text) => {
     const pTag = createDOMElement('p');
-    pTag.innerHTML = text
+    pTag.textContent = pTag.innerText = text;
     document.body.appendChild(pTag);
 }
 
@@ -63,7 +63,7 @@ const classArgs = ["list_item", "list_item", "list_item"]
 const addElementWithMultipleClasses = (tagName, text, arrClasses) => {
 
     const newTag = createDOMElement(tagName);
-    newTag.innerHTML = text;
+    newTag.innerText = newTag.textContent = text;
 
     for (const className of arrClasses) {
         newTag.classList.add(className);
@@ -86,8 +86,22 @@ addElementWithMultipleClasses('h4',"EXPERIENCE", classArgs);
 
 const buildAList = (listType, listClass, numOfLi) => {
 
+    const listTypeTag = document.createElement(listType);
+    listTypeTag.classList.add(listClass);
 
+
+    for (let i = 0; i < numOfLi; i++) {
+
+        let liTag = document.createElement('li');
+        liTag.innerText =  liTag.textContent = `Item ${i}`;
+        listTypeTag.appendChild(liTag);
+    }
+
+    document.body.appendChild(listTypeTag);
 }
+
+buildAList("ul","Item", 4);
+
 
 /**
  * Exercise 6
@@ -103,9 +117,19 @@ const buildAList = (listType, listClass, numOfLi) => {
  *
  */
 
-const prependLiToList = () => {
+const prependLiToList = (text, classArg) => {
+
+    const ul = document.getElementsByTagName('ul')[0];
+    const liTag = document.createElement('li');
+    liTag.innerText = text;
+    liTag.classList.add(classArg);
+
+    ul.prepend(liTag);
+
+    document.body.appendChild(ul);
 
 }
+prependLiToList("first li", "liClass");
 
 /**
  * Exercise 7
@@ -120,7 +144,15 @@ const prependLiToList = () => {
  *
  */
 
-const pushToSelectedPosition = () => {
+const pushToSelectedPosition = (text, className, indexPos) => {
+    const li = document.createElement('li');
+    li.innerText = text;
+    li.classList.add(className);
+
+    const ulElem = document.querySelector('ul')
+    const refElem = ulElem.children[indexPos];
+
+    ulElem.insertBefore(li, refElem);
 
 }
 
@@ -135,6 +167,8 @@ const pushToSelectedPosition = () => {
  *
  */
 
-const deleteChildrenElements = () => {
+const deleteChildrenElements = (parentSele, elemSelec) => {
+
+    document.getElementById(parentSele).remove(elemSelec);
 
 }
