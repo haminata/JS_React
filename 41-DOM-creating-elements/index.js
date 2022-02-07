@@ -167,9 +167,8 @@ const pushToSelectedPosition = (text, className, indexPos) => {
  *
  */
 
-const deleteChildrenElements = (parSele, elemSelec) => {
-    // const erase = document.querySelectorAll(parSele);
-    //
-    // erase.remove(elemSelec);
+const deleteChildrenElements = (parentSele, elemSelec) => {
+
+    document.getElementById(parentSele).remove(elemSelec);
 
 }
