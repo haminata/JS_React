@@ -9,12 +9,24 @@
  * logs a message in the console when a click occurs
  */
 
+const clickTheButton = () => {
+    const btn = document.querySelector('.click');
+    btn.addEventListener('click', event => {
+        console.log('Btn value' + btn.value);
+    })
+
+}
+
 /**
  * Exercise 2
  *
  * create a function {hoverOver} which listens for a hover over an
  * "a" tag inside div with class "mouseover" and logs a message in the console
  */
+
+const hoverOver = () => {
+
+}
 
 /**
  * Exercise 3
