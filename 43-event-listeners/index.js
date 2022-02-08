@@ -77,6 +77,19 @@ const focusOnMe = () => {
  * and then click on anything else
  */
 
+const clickElsewhere = () => {
+    const divIn = document.querySelector('.input');
+    const  input = divIn.querySelector('input');
+
+    input.addEventListener('focus', e => {
+        console.log('Focus on ');
+    })
+    input.addEventListener('blur', e => {
+        console.log('Focus out');
+    })
+
+
+}
 
 /**
  * Exercise 6
@@ -86,6 +99,19 @@ const focusOnMe = () => {
  * and then press any key
  */
 
+const pressAKey = () => {
+    const divIn = document.querySelector('.input');
+    const  input = divIn.querySelector('input');
+
+    input.addEventListener('focus', e => {
+        console.log('Focus on ');
+    })
+    input.addEventListener('keydown', e => {
+        console.log('Focus out');
+    })
+
+}
+
 /**
  * Exercise 7
  *
@@ -93,6 +119,19 @@ const focusOnMe = () => {
  * when you focus on input which is inside 'div' with class 'input'
  * and then press any key and release it
  */
+
+const releaseAKey = () => {
+    const divIn = document.querySelector('.input');
+    const  input = divIn.querySelector('input');
+
+    input.addEventListener('focus', e => {
+        console.log('Focus on ');
+    })
+
+    input.addEventListener('keyup', e => {
+        console.log('Focus out');
+    })
+}
 
 /**
  * Exercise 8
@@ -102,12 +141,31 @@ const focusOnMe = () => {
  * and then press any key and release it
  */
 
+const inputToUpperCase = () => {
+    const divIn = document.querySelector('.input');
+    const  input = divIn.querySelector('input');
+
+    input.addEventListener('keyup', e => {
+        input.value = input.value.toUpperCase();
+        console.log('keyUp and release');
+    })
+}
+
+
 /**
  * Exercise 9
  *
  * create a function {handleSelectChange} which will log selected option value
  * in console when you select an option in "select" with id "items"
  */
+
+const handleSelectChange = () => {
+    var selectFrom = document.getElementById('items');
+
+        selectFrom.addEventListener('change', e => {
+            console.log(e.target.value);
+        })
+}
 
 /**
  * Exercise 10
@@ -117,9 +175,25 @@ const focusOnMe = () => {
  * and values, input values and log it in the console
  */
 
+const submitFormHandler = () => {
+    var selectFrom = document.getElementById('items');
+
+    selectFrom.addEventListener('change', e => {
+        console.log(e.target.value);
+    })
+}
+
 /**
  * Exercise 11
  *
  * create a function {handleScroll} which will get window vertical scroll position
  * on scroll, and log it in the console
  */
+
+const handleScroll = () => {
+    var selectFrom = document.getElementById('items');
+
+    selectFrom.addEventListener('change', e => {
+        console.log(e.target.value);
+    })
+}
