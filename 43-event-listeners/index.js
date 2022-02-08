@@ -23,15 +23,15 @@ const clickTheButton = () => {
  * create a function {hoverOver} which listens for a hover over an
  * "a" tag inside div with class "mouseover" and logs a message in the console
  */
-
+var enterEventCount = 0;
 const hoverOver = () => {
     const div = document.querySelector('.mouseover');
     const aTag = div.querySelector('a');
 
-    aTag.addEventListener('mouseover', function (event) {
-        console.log('Mouseover listener')
+    aTag.addEventListener('mouseover', e => {
+        enterEventCount++;
+        console.log('Mouseover listener '+ enterEventCount);
     })
-
 }
 
 /**
@@ -42,12 +42,32 @@ const hoverOver = () => {
  * and log a message in the console
  */
 
+var leaveEventCount = 0;
+const handleLeave = () => {
+    const div = document.querySelector('.mouseover');
+    const aTag = div.querySelector('a');
+
+    aTag.addEventListener('mouseout', e => {
+        leaveEventCount++;
+        console.log('Leave mouseover '+ leaveEventCount);
+    })
+}
+
 /**
  * Exercise 4
  *
  * create a function {focusOnMe} which will log a message in the console
  * when you focus on input which is inside 'div' with class 'input'
  */
+
+const focusOnMe = () => {
+    const divIn = document.querySelector('.input');
+    const input = divIn.querySelector('input');
+
+    input.addEventListener('focus', e => {
+        console.log('focus listener');
+    })
+}
 
 /**
  * Exercise 5
@@ -56,6 +76,7 @@ const hoverOver = () => {
  * when first you focus on input which is inside 'div' with class 'input'
  * and then click on anything else
  */
+
 
 /**
  * Exercise 6
