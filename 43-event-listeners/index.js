@@ -25,6 +25,12 @@ const clickTheButton = () => {
  */
 
 const hoverOver = () => {
+    const div = document.querySelector('.mouseover');
+    const aTag = div.querySelector('a');
+
+    aTag.addEventListener('mouseover', function (event) {
+        console.log('Mouseover listener')
+    })
 
 }
 
