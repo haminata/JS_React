@@ -185,10 +185,7 @@ const submitFormHandler = () => {
 
             valObject[selectFormElement.name] = selectFormElement.value;
         }
-
         console.log(valObject);
-
-
     })
 }
 
@@ -200,9 +197,7 @@ const submitFormHandler = () => {
  */
 
 const handleScroll = () => {
-    var selectFrom = document.getElementById('items');
-
-    selectFrom.addEventListener('change', e => {
-        console.log(e.target.value);
+    window.addEventListener('scroll', e => {
+        console.log(window.scrollY);
     })
 }
