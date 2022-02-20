@@ -176,10 +176,16 @@ const handleSelectChange = () => {
  */
 
 const submitFormHandler = () => {
-    var selectFrom = document.getElementById('items');
+    var selectFrom = document.getElementsByTagName('form')[0];
+    const inputsForm = selectFrom.querySelectorAll('input');
 
-    selectFrom.addEventListener('change', e => {
-        console.log(e.target.value);
+    selectFrom.addEventListener('submit', e => {
+        const valObject = {};
+        for (const selectFormElement of inputsForm) {
+
+            valObject[selectFormElement.name] = selectFormElement.value;
+        }
+        console.log(valObject);
     })
 }
 
@@ -191,9 +197,7 @@ const submitFormHandler = () => {
  */
 
 const handleScroll = () => {
-    var selectFrom = document.getElementById('items');
-
-    selectFrom.addEventListener('change', e => {
-        console.log(e.target.value);
+    window.addEventListener('scroll', e => {
+        console.log(window.scrollY);
     })
 }

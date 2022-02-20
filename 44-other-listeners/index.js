@@ -6,6 +6,14 @@
  * when you double click on ".trigger"
  */
 
+const selectFrom = document.getElementsByClassName('trigger')[0];
+
+selectFrom.addEventListener('popup', e => {
+
+})
+
+
+
 /**
  * Exercise 2
  *
