@@ -23,6 +23,13 @@ selectFrom.addEventListener('dblclick', e => {
  * zoom class on image when you double click on
  * image container(".img")
  */
+const imageDiv = document.getElementsByClassName('img')[0];
+const cat = imageDiv.querySelector('img');
+
+
+imageDiv.addEventListener('dblclick', e => {
+    cat.classList.toggle('zoom');
+})
 
 
 /**
