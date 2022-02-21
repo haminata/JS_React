@@ -7,13 +7,11 @@
  */
 
 const selectFrom = document.getElementsByClassName('trigger')[0];
-//const popup = document.querySelectorAll('popup');
-
-selectFrom.addEventListener('dbclick', e => {
-
-    selectFrom.classList.add('open');
+const popup = document.querySelectorAll('.popup')[0];
 
 
+selectFrom.addEventListener('dblclick', e => {
+    popup.classList.add('open');
 })
 
 
