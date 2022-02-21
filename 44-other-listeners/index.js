@@ -42,14 +42,14 @@ imageDiv.addEventListener('dblclick', e => {
  */
 
 const playerDiv = document.querySelectorAll('.player')[0];
-const srcPlayer = playerDiv.querySelector('source');
+const audioPlayer = playerDiv.querySelector('audio');
 
 document.addEventListener("visibilitychange", (event) => {
     if (document.visibilityState === "visible") {
-        srcPlayer.onplaying;
+        audioPlayer.play();
         console.log("tab is active");
-    } else {
-        srcPlayer.onpause;
+    } else {-
+        audioPlayer.pause();
         console.log("tab is inactive");
     }
 });
