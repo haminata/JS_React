@@ -40,3 +40,16 @@ imageDiv.addEventListener('dblclick', e => {
  * 
  * NOTE: to test please interact with the page, and switch tabs
  */
+
+const playerDiv = document.querySelectorAll('.player')[0];
+const srcPlayer = playerDiv.querySelector('source');
+
+document.addEventListener("visibilitychange", (event) => {
+    if (document.visibilityState === "visible") {
+        srcPlayer.onplaying;
+        console.log("tab is active");
+    } else {
+        srcPlayer.onpause;
+        console.log("tab is inactive");
+    }
+});
