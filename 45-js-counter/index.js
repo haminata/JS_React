@@ -11,6 +11,22 @@ let counter = 0;
  * NOTE: ".counter_value" should always represent the current value of {counter}
  */
 
+const action =(symbol) => {
+    const countervAL = document.querySelector('.counter_value');
+
+    if(symbol === '-'){
+        counter -= step;
+
+    }else if (symbol === '+'){
+        counter += step;
+
+    }else{
+        console.log('symbol not recognised');
+    }
+    countervAL.textContent = counter;
+    countervAL.innerText = counter;
+}
+
 /**
  * Exercise 2
  *
