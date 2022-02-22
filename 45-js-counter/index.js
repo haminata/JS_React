@@ -39,6 +39,20 @@ const action =(symbol) => {
  *
  */
 
+const setStepForm = document.querySelector('form');
+const setStepBtn = document.querySelector('form button');
+const input = document.querySelector('form input');
+const stepVal = document.querySelector('.step_value');
+
+
+setStepForm.addEventListener('submit', e => {
+    step = parseInt(input.value);
+    input.value = 1;
+   stepVal.innerText = parseInt(step);
+} )
+
+
+
 /**
  * Exercise 3
  *
