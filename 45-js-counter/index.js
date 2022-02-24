@@ -62,6 +62,10 @@ setStepForm.addEventListener('submit', e => {
  * NOTE: remember to use your {action} function
  */
 
+const decrBtn = document.getElementById('decrement');
+decrBtn.addEventListener('click', ev => {
+    action('-');
+})
 /**
  * Exercise 4
  *
@@ -70,7 +74,10 @@ setStepForm.addEventListener('submit', e => {
  *
  * NOTE: remember to use your {action} function
  */
-
+const incrBtn = document.getElementById('increment');
+incrBtn.addEventListener('click', ev => {
+    action('+');
+})
 /**
  * Exercise 5
  *
@@ -79,6 +86,26 @@ setStepForm.addEventListener('submit', e => {
  *
  * NOTE: ".counter_value" should represent current state of counter
  */
+
+const autoDecre = document.getElementById('auto_decrement');
+let runningInterval = null;
+
+const stopInterval = () => {
+    if(runningInterval !== null){
+        clearInterval(runningInterval);
+        console.log("cleared interval: ", runningInterval);
+        runningInterval = null;
+    }
+}
+
+autoDecre.addEventListener("click", ev => {
+
+    stopInterval()
+
+    runningInterval = setInterval(() => {
+        action('-');
+    },1000)
+})
 
 /**
  * Exercise 6
@@ -89,9 +116,23 @@ setStepForm.addEventListener('submit', e => {
  * NOTE: ".counter_value" should represent current state of counter
  */
 
+const autoIncr = document.getElementById('auto_increment');
+autoIncr.addEventListener("click", ev => {
+
+    stopInterval();
+
+    runningInterval = setInterval(() => {
+        action('+')
+    },1000)
+
+})
+
 /**
  * Exercise 7
  *
  * when the user clicks on "#stop_auto",
  * the auto counter should stop
  */
+
+const stopAuto = document.getElementById('stop_auto');
+stopAuto.onclick = stopInterval

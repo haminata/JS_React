@@ -144,7 +144,7 @@ describe("click on #auto_decrement", () => {
     counter = 3;
     fireEvent.click(decBtn);
 
-    await wait(3000);
+    await wait(2000);
 
     expect(document.querySelector(".counter_value").innerText).toEqual(-1);
   });
