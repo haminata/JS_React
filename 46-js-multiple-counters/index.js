@@ -1,8 +1,18 @@
+
 const addCounterEl = document.querySelector("#new_timer");
 const timersContainerEl = document.querySelector(".timers");
 
 // USE THIS VARIABLE TO COUNT TIMERS
 let timersCount = 0;
+let interval = null;
+let seconds = '00';
+let tens = '00';
+const outputSeconds = document.getElementById('seconds1');
+const outputTens = document.getElementById('tens1');
+
+const stopDivs = document.querySelectorAll('.stop');
+const resetDivs = document.querySelectorAll('.reset');
+
 
 /**
  * Exercise 1
@@ -14,3 +24,67 @@ let timersCount = 0;
  * NOTE: each timer should have additional class with unique number(as you
  * can see in example - timer_$)
  */
+
+
+/**
+ * Create a method that when click the buttons stop and reset it'll reset the
+ * timer or stop the timer.
+ */
+
+
+const stopResetBtn = (stopResetAction = 'start') => {
+
+    if(stopResetAction === 'stop'){
+        for(const stopDiv of stopDivs){
+            stopDiv.addEventListener('click', e => {
+                console.log('stop button applied');
+                stop();
+
+            })
+        }
+    }else if(stopResetAction === 'reset'){
+        for(const resetDiv of resetDivs){
+            resetDiv.addEventListener('click', e => {
+                console.log('reset button applied');
+                clearInterval(interval);
+                interval = setInterval(startCount, 10);
+            })
+        }
+    }else if(stopResetAction === 'start'){
+        clearInterval(interval);
+        interval =setInterval(startCount, 10);
+    }
+}
+
+/**
+ * Create a method that counts up
+ */
+
+const startCount = () => {
+    tens++;
+    if(tens <= 9){
+        outputTens.innerHTML = '0' + tens;
+    }
+
+    if(tens > 9){
+        outputTens.innerHTML = tens;
+    }
+
+    if(tens > 99){
+        seconds++;
+        outputSeconds.innerHTML = '0' + seconds;
+        tens = 0;
+        outputTens.innerHTML = '0' + tens;
+    }
+
+    if(seconds > 9){
+        outputSeconds.innerHTML = seconds;
+    }
+
+}
+
+/**
+ * Method to stop timer
+ */
+
+const stop = () => clearInterval();

@@ -13,7 +13,7 @@
 5. When I click "X", the timer should stop and be removed from the DOM
 6. I should be able to add NO MORE than 5 timers.
 
-## How to approach it
+## How to approach it                        
 
 There's much less guidance in the README than usual. One approach might be to plan all the functions you think you'll need (more small functions is _probably_ better than fewer big functions!), then write your own descriptions of what they might do. Then figure out how to write the code to achieve what the descriptions say.
 
