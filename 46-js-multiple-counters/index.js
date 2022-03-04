@@ -4,9 +4,9 @@ const timersContainerEl = document.querySelector(".timers");
 
 // USE THIS VARIABLE TO COUNT TIMERS
 let timersCount = 0;
-let interval = null;
-let seconds = '00';
-let tens = '00';
+let interval = 0;
+var seconds = 0;
+var tens = 0;
 const outputSeconds = document.getElementById('seconds1');
 const outputTens = document.getElementById('tens1');
 
@@ -24,6 +24,8 @@ const resetDivs = document.querySelectorAll('.reset');
  * NOTE: each timer should have additional class with unique number(as you
  * can see in example - timer_$)
  */
+
+const createTimerEl = () => {}
 
 
 /**
@@ -46,13 +48,18 @@ const stopResetBtn = (stopResetAction = 'start') => {
         for(const resetDiv of resetDivs){
             resetDiv.addEventListener('click', e => {
                 console.log('reset button applied');
-                clearInterval(interval);
+                stop();
+                tens = '00';
+                seconds= '0';
+                outputSeconds.innerHTML = seconds;
+                outputTens.innerHTML = tens;
+
                 interval = setInterval(startCount, 10);
             })
         }
     }else if(stopResetAction === 'start'){
         clearInterval(interval);
-        interval =setInterval(startCount, 10);
+        interval = setInterval(startCount, 10);
     }
 }
 
@@ -87,4 +94,4 @@ const startCount = () => {
  * Method to stop timer
  */
 
-const stop = () => clearInterval();
+const stop = () => clearInterval(interval);
