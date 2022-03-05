@@ -67,6 +67,19 @@ const loadQuiz = () => {
 
 };
 
+/*
+ * @getSelected()
+ *
+ */
+
+const getSelected = () => {
+    const answersEl = document.querySelectorAll('.answer');
+
+
+
+}
+
+
 submitBtn.addEventListener('click', e=>{
     currentQuiz++;
     if(currentQuiz < quizData.length - 1 ){
@@ -74,7 +87,7 @@ submitBtn.addEventListener('click', e=>{
     }else {
         alert("Well done, you've completed the quiz!")
         currentQuiz = 0;
-        loadQuiz();
+        loadQuiz(); ``
     }
 
 })
