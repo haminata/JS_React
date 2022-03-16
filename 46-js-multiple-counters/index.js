@@ -7,11 +7,9 @@ let timersCount = 0;
 let interval = 0;
 var seconds = 0;
 var tens = 0;
-const outputSeconds = document.getElementById('seconds1');
-const outputTens = document.getElementById('tens1');
 
-const stopDivs = document.querySelectorAll('.stop');
-const resetDivs = document.querySelectorAll('.reset');
+
+const addTimerBtn = document.getElementById('new_timer');
 
 
 /**
@@ -25,7 +23,20 @@ const resetDivs = document.querySelectorAll('.reset');
  * can see in example - timer_$)
  */
 
-const createTimerEl = () => {}
+const createTimerEl = (numberOfTimerBox) => {
+
+}
+
+/**
+ * Event listener for the add timer button
+ */
+
+addTimerBtn.addEventListener('click', ev => {
+    if(timersCount < 5){
+        console.log(`add timer button was clicked ${timersCount} times`);
+    }
+    timersCount++;
+})
 
 
 /**
