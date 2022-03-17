@@ -1,6 +1,7 @@
 
 const addCounterEl = document.querySelector("#new_timer");
 const timersContainerEl = document.querySelector(".timers");
+const parentDiv = document.querySelector('.timers');
 
 // USE THIS VARIABLE TO COUNT TIMERS
 let timersCount = 0;
@@ -23,9 +24,52 @@ const addTimerBtn = document.getElementById('new_timer');
  * can see in example - timer_$)
  */
 
-const createTimerEl = (numberOfTimerBox) => {
+const createTimerEl = () => {
+
+    const divTimerTimer = document.createElement('div');
+    divTimerTimer.classList.add("timer_1");
+
+    const divRemove = document.createElement('div');
+    divRemove.classList.add("remove");
+
+    const h3 = document.createElement('h3');
+    h3.innerText = '0';
+
+
+    const divBtn = document.createElement('div');
+    divBtn.classList.add("btn");
+
+    const resetBtn = document.createElement('button');
+    resetBtn.classList.add("reset");
+    resetBtn.innerText = 'Reset';
+
+    const stoptBtn = document.createElement('button');
+    stoptBtn.classList.add("stop");
+    stoptBtn.innerText = 'Stop';
+
+    divBtn.appendChild(resetBtn);
+    divBtn.appendChild(stoptBtn);
+
+    parentDiv.appendChild(divTimerTimer);
+    parentDiv.appendChild(divRemove);
+    parentDiv.appendChild(h3);
+
+    parentDiv.appendChild(divBtn);
+
 
 }
+
+
+/**
+ * Create timer elements
+ */
+const sjhcdb = () => {
+
+
+}
+
+
+
 
 /**
  * Event listener for the add timer button
