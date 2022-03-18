@@ -25,15 +25,19 @@ const addTimerBtn = document.getElementById('new_timer');
  */
 
 const createTimerEl = () => {
-
     const divTimerTimer = document.createElement('div');
-    divTimerTimer.classList.add("timer_1");
+    divTimerTimer.classList.add("timer");
+    divTimerTimer.classList.add(`timer_${timersCount +1}`);
+
 
     const divRemove = document.createElement('div');
     divRemove.classList.add("remove");
 
     const h3 = document.createElement('h3');
-    h3.innerText = '0';
+    h3.innerHTML = '0';
+    const spanEl = document.createElement('span');
+    spanEl.innerHTML = ' 00';
+    h3.appendChild(spanEl);
 
 
     const divBtn = document.createElement('div');
@@ -41,34 +45,40 @@ const createTimerEl = () => {
 
     const resetBtn = document.createElement('button');
     resetBtn.classList.add("reset");
-    resetBtn.innerText = 'Reset';
+    resetBtn.innerHTML = 'Reset';
 
     const stoptBtn = document.createElement('button');
     stoptBtn.classList.add("stop");
-    stoptBtn.innerText = 'Stop';
+    stoptBtn.innerHTML = 'Stop';
 
     divBtn.appendChild(resetBtn);
     divBtn.appendChild(stoptBtn);
 
     parentDiv.appendChild(divTimerTimer);
-    parentDiv.appendChild(divRemove);
-    parentDiv.appendChild(h3);
+    divTimerTimer.appendChild(divRemove);
+    divTimerTimer.appendChild(h3);
 
-    parentDiv.appendChild(divBtn);
+    divTimerTimer.appendChild(divBtn);
 
+    stoptBtn.addEventListener('click', e => {
+        console.log('stop button applied');
+        stop();
+
+    })
+
+    resetBtn.addEventListener('click', e => {
+        console.log('reset button applied');
+
+        //interval = setInterval(startCount, 10);
+    })
+
+    divRemove.addEventListener('click', e => {
+        console.log('x button applied');
+        divTimerTimer.remove();
+
+    })
 
 }
-
-
-/**
- * Create timer elements
- */
-const sjhcdb = () => {
-
-
-}
-
-
 
 
 /**
@@ -78,9 +88,11 @@ const sjhcdb = () => {
 addTimerBtn.addEventListener('click', ev => {
     if(timersCount < 5){
         console.log(`add timer button was clicked ${timersCount} times`);
+        createTimerEl();
     }
     timersCount++;
 })
+
 
 
 /**
@@ -93,7 +105,7 @@ const stopResetBtn = (stopResetAction = 'start') => {
 
     if(stopResetAction === 'stop'){
         for(const stopDiv of stopDivs){
-            stopDiv.addEventListener('click', e => {
+            stoptBtn.addEventListener('click', e => {
                 console.log('stop button applied');
                 stop();
 
