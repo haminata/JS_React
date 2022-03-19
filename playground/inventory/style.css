@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #00cc66;
+    background-image: linear-gradient(315deg, #b3f0ff 0%, #00cc66 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", "sans-serif";
+    margin: 0;
+    min-height: 100vh;
+}
+
+h1 {
+    padding: 1rem;
+    text-align: center;
+    margin: 0;
+}
+.inventory-display-list-container {
+    padding: 4rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.1);
+
+}
+
+.inventory-form-container {
+    padding: 4rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 600px;
+    max-width: 100%;
+}
