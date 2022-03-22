@@ -26,9 +26,9 @@ const addTimerBtn = document.getElementById('new_timer');
 
 const createTimerEl = () => {
     const divTimerTimer = document.createElement('div');
+
     divTimerTimer.classList.add("timer");
     divTimerTimer.classList.add(`timer_${timersCount +1}`);
-
 
     const divRemove = document.createElement('div');
     divRemove.classList.add("remove");
@@ -60,6 +60,7 @@ const createTimerEl = () => {
 
     divTimerTimer.appendChild(divBtn);
 
+
     stoptBtn.addEventListener('click', e => {
         console.log('stop button applied');
         stop();
@@ -68,7 +69,7 @@ const createTimerEl = () => {
 
     resetBtn.addEventListener('click', e => {
         console.log('reset button applied');
-
+        stopResetBtn('reset');
         //interval = setInterval(startCount, 10);
     })
 
@@ -77,7 +78,7 @@ const createTimerEl = () => {
         divTimerTimer.remove();
 
     })
-
+    return divTimerTimer;
 }
 
 
@@ -88,7 +89,9 @@ const createTimerEl = () => {
 addTimerBtn.addEventListener('click', ev => {
     if(timersCount < 5){
         console.log(`add timer button was clicked ${timersCount} times`);
-        createTimerEl();
+        let newDivTimerTimerElem = createTimerEl();
+        stopResetBtn('start',newDivTimerTimerElem);
+
     }
     timersCount++;
 })
@@ -101,14 +104,13 @@ addTimerBtn.addEventListener('click', ev => {
  */
 
 
-const stopResetBtn = (stopResetAction = 'start') => {
+const stopResetBtn = (stopResetAction = 'start', target) => {
 
     if(stopResetAction === 'stop'){
         for(const stopDiv of stopDivs){
             stoptBtn.addEventListener('click', e => {
                 console.log('stop button applied');
                 stop();
-
             })
         }
     }else if(stopResetAction === 'reset'){
@@ -126,7 +128,9 @@ const stopResetBtn = (stopResetAction = 'start') => {
         }
     }else if(stopResetAction === 'start'){
         clearInterval(interval);
-        interval = setInterval(startCount, 10);
+        interval = setInterval(() => {
+            startCount(target);
+        }, 10);
     }
 }
 
@@ -134,26 +138,36 @@ const stopResetBtn = (stopResetAction = 'start') => {
  * Create a method that counts up
  */
 
-const startCount = () => {
+const startCount = (target) => {
+    let outputTens = target.querySelector('h3');
+
+    const content = `
+    ${seconds < 10 ? '0' + seconds : seconds}
+    <span>${tens < 10 ? '0' + tens : tens}</span>
+    `;
+
     tens++;
-    if(tens <= 9){
-        outputTens.innerHTML = '0' + tens;
-    }
+    // if(tens <= 9){
+    //
+    //     outputTens.innerHTML = '0' + tens;
+    // }
+    //
+    // if(tens > 9){
+    //     outputTens.innerHTML = tens;
+    // }
 
-    if(tens > 9){
-        outputTens.innerHTML = tens;
-    }
-
-    if(tens > 99){
+    if(tens > 59){
         seconds++;
-        outputSeconds.innerHTML = '0' + seconds;
+        // outputSeconds.innerHTML = '0' + seconds;
         tens = 0;
-        outputTens.innerHTML = '0' + tens;
+        // outputTens.innerHTML = '0' + tens;
     }
 
-    if(seconds > 9){
-        outputSeconds.innerHTML = seconds;
-    }
+    outputTens.innerHTML = content;
+
+    // if(seconds > 9){
+    //     outputSeconds.innerHTML = seconds;
+    // }
 
 }
 
