@@ -1,16 +1,11 @@
 
 const addCounterEl = document.querySelector("#new_timer");
 const timersContainerEl = document.querySelector(".timers");
-const parentDiv = document.querySelector('.timers');
+const addTimerBtn = document.getElementById('new_timer');
+
 
 // USE THIS VARIABLE TO COUNT TIMERS
 let timersCount = 0;
-let interval = 0;
-var seconds = 0;
-var tens = 0;
-
-
-const addTimerBtn = document.getElementById('new_timer');
 
 
 /**
@@ -25,7 +20,11 @@ const addTimerBtn = document.getElementById('new_timer');
  */
 
 const createTimerEl = () => {
+    const parentDiv = document.querySelector('.timers');
+
     const divTimerTimer = document.createElement('div');
+    divTimerTimer.dataset.seconds = '0';
+    divTimerTimer.dataset.tens = '0';
 
     divTimerTimer.classList.add("timer");
     divTimerTimer.classList.add(`timer_${timersCount +1}`);
@@ -60,10 +59,9 @@ const createTimerEl = () => {
 
     divTimerTimer.appendChild(divBtn);
 
-
     stoptBtn.addEventListener('click', e => {
         console.log('stop button applied');
-        stop();
+        stop(divTimerTimer);
 
     })
 
@@ -78,7 +76,9 @@ const createTimerEl = () => {
         divTimerTimer.remove();
 
     })
+
     return divTimerTimer;
+
 }
 
 
@@ -87,15 +87,18 @@ const createTimerEl = () => {
  */
 
 addTimerBtn.addEventListener('click', ev => {
+
     if(timersCount < 5){
+
         console.log(`add timer button was clicked ${timersCount} times`);
+
         let newDivTimerTimerElem = createTimerEl();
-        stopResetBtn('start',newDivTimerTimerElem);
+
+        stopResetBtn('start', newDivTimerTimerElem);
 
     }
     timersCount++;
 })
-
 
 
 /**
@@ -106,14 +109,7 @@ addTimerBtn.addEventListener('click', ev => {
 
 const stopResetBtn = (stopResetAction = 'start', target) => {
 
-    if(stopResetAction === 'stop'){
-        for(const stopDiv of stopDivs){
-            stoptBtn.addEventListener('click', e => {
-                console.log('stop button applied');
-                stop();
-            })
-        }
-    }else if(stopResetAction === 'reset'){
+    if(stopResetAction === 'reset'){
         for(const resetDiv of resetDivs){
             resetDiv.addEventListener('click', e => {
                 console.log('reset button applied');
@@ -127,10 +123,12 @@ const stopResetBtn = (stopResetAction = 'start', target) => {
             })
         }
     }else if(stopResetAction === 'start'){
-        clearInterval(interval);
-        interval = setInterval(() => {
+        // clearInterval(interval);
+        let interval = setInterval(() => {
             startCount(target);
         }, 10);
+
+        target.dataset.interval = String(interval);
     }
 }
 
@@ -139,7 +137,11 @@ const stopResetBtn = (stopResetAction = 'start', target) => {
  */
 
 const startCount = (target) => {
+
     let outputTens = target.querySelector('h3');
+    let seconds = parseInt(target.dataset.seconds);
+    let tens = parseInt(target.dataset.tens);
+    //console.log('Current time:', seconds, tens);
 
     const content = `
     ${seconds < 10 ? '0' + seconds : seconds}
@@ -159,8 +161,10 @@ const startCount = (target) => {
     if(tens > 59){
         seconds++;
         // outputSeconds.innerHTML = '0' + seconds;
-        tens = 0;
+        tens = 0
+
         // outputTens.innerHTML = '0' + tens;
+        target.dataset.seconds = String(seconds);
     }
 
     outputTens.innerHTML = content;
@@ -168,11 +172,16 @@ const startCount = (target) => {
     // if(seconds > 9){
     //     outputSeconds.innerHTML = seconds;
     // }
-
+    target.dataset.tens = String(tens);
 }
 
 /**
  * Method to stop timer
  */
 
-const stop = () => clearInterval(interval);
+const stop = (target) => {
+    let interval = parseInt(target.dataset.interval)
+    clearInterval(interval);
+
+    target.dataset.interval = '';
+};
