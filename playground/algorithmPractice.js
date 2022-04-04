@@ -34,3 +34,38 @@ function findNextEven(arrIn, inAdd ){
 }
 
 console.log("running script ...", arrayMultiplication(input));
+
+
+var containsDuplicate = function(nums) {
+
+    let first;
+    let second;
+    let result = false;
+
+    for(let i = 0; i < nums.length-1; i++){
+         first = nums[i];
+        for(let j = i+1; j < nums.length; j++){
+            second = nums[j];
+            if (first === second){
+                return true;
+
+                break;
+            }
+
+        }
+    } console.log("result: " + first, second);
+};
+let nums = [1,2,3,1,1];
+console.log('calling my duplicate function ...', containsDuplicate(nums));
+
+
+
+function isValidSubsequence(array, sequence) {
+    // Write your code here.
+        for(let i=0; i < array.length; i++){
+        let arrVal = array[i];
+        console.log(arrVal)
+    }
+}
+let arr = [1,2,3,1,1];
+isValidSubsequence(arr);
